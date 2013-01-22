@@ -90,7 +90,6 @@ Ext.define('SSearch.common.Config', {
 		]);
 	},
 	requires: [
-		'Ext.ClassManager',
 		'Ext.Loader'
 	]
 });
