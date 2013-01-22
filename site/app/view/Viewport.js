@@ -19,7 +19,10 @@ Ext.define('SSearch.view.Viewport', {
         region: 'center',
         xtype: 'tabpanel',
         items:[{
-            title: 'Center Tab 1'
+            title: 'Center Tab 1',
+            items: [{
+                xtype: 'main'
+            }]
         }]
     }]
 });

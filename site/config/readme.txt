@@ -1,0 +1,1 @@
+Please rename config.development.json to config.json to work with development configuration of the app.

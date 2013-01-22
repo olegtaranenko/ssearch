@@ -1,0 +1,29 @@
+{
+    "enabled" : true,
+
+	"rootLevel": "TRACE",
+
+	"appender" : "ChromeConsoleAppender",
+
+	"appenderThreshold" : "TRACE",
+
+	"layout": "%d{ABSOLUTE} [%45c] %-5p %_",
+
+	"LEVEL" : {
+		"TRACE": [
+			"config.js"
+		],
+
+		"DEBUG": [],
+
+		"INFO": [],
+
+		"WARN": [],
+
+		"ERROR": [],
+
+		"FATAL": [],
+
+		"OFF": []
+	}
+}

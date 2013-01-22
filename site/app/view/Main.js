@@ -1,4 +1,11 @@
 Ext.define("SSearch.view.Main", {
     extend: 'Ext.Component',
-    html: 'Hello, World!!'
+    xtype: 'main',
+    html: 'Hello, World!!',
+
+    initComponent: function() {
+        this.callParent();
+        var log = this.getLogger();
+        log.trace('Hello logger!!');
+    }
 });

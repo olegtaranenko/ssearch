@@ -9,6 +9,7 @@ Ext.application({
 
     views: ["Main"],
 
+    requires: ['SSearch.common.Config'],
 
     name: 'SSearch',
 

@@ -69,7 +69,9 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.ux.data.PagingMemoryProxy": [
     "Ext.data.PagingMemoryProxy"
   ]
-});Ext.ClassManager.addNameAliasMappings({
+});
+
+Ext.ClassManager.addNameAliasMappings({
   "Ext.ux.BoxReorderer": [],
   "SSearch.view.Main": [],
   "Ext.ux.grid.filter.Filter": [],
