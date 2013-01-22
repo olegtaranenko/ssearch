@@ -1,13 +1,13 @@
 {
     "enabled" : true,
 
-	"rootLevel": "TRACE",
+	"rootLevel": "EVENT",
 
 	"appender" : "ChromeConsoleAppender",
 
-	"appenderThreshold" : "TRACE",
+	"appenderThreshold" : "EVENT",
 
-	"layout": "%d{ABSOLUTE} [%45c] %-5p %_",
+	"layout": "%d{ABSOLUTE} [%45c] %-5p %$",
 
 	"LEVEL" : {
 		"TRACE": [

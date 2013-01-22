@@ -6,6 +6,7 @@ Ext.define("SSearch.view.Main", {
     initComponent: function() {
         this.callParent();
         var log = this.getLogger();
-        log.trace('Hello logger!!');
+        log.trace('Hello logger!!', this);
+		log.event('event!!')
     }
 });

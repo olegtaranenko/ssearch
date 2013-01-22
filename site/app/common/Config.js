@@ -65,7 +65,7 @@ Ext.define('SSearch.common.Config', {
 
 
 		var configuration = loggingConfig;
-;
+
 
 		var logEnabled = configuration.enabled,
 			getLogger = logEnabled ? function (name) {

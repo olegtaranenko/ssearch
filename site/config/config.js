@@ -37,8 +37,7 @@ var initialConfig = {};
 			threshold = evalLevel(configuration.appenderThreshold),
 			layout = eval('new log4javascript.PatternLayout("' + configuration.layout + '")'),
 			rootLogger = log4javascript.getRootLogger(),
-			rootLevel = evalLevel(configuration.rootLevel),
-			LEVEL = configuration.LEVEL;
+			rootLevel = evalLevel(configuration.rootLevel);
 
 		appender.setThreshold(threshold);
 		appender.setLayout(layout);
@@ -83,15 +82,16 @@ var initialConfig = {};
 	 ************************************/
 
 	if (logEnabled) {
+		var LEVEL = loggingConfig.LEVEL;
 		for (var levelName in LEVEL) {
 			if (!LEVEL.hasOwnProperty(levelName)) {
 				continue;
 			}
-			var loggerNames = LEVEL[levelName],
+			var configLoggers = LEVEL[levelName],
 				level = evalLevel(levelName);
 
-			for (var i = 0; i < loggerNames.length; i++) {
-				var loggerName = loggerNames[i],
+			for (var i = 0; i < configLoggers.length; i++) {
+				var loggerName = configLoggers[i],
 					logger = log4javascript.getLogger(loggerName);
 
 				logger.setLevel(level);

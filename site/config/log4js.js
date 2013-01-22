@@ -457,6 +457,7 @@ var log4javascript = (function() {
 	};
 
 	Level.ALL = new Level(Number.MIN_VALUE, "ALL");
+	Level.EVENT = new Level(5000, "EVENT");
 	Level.TRACE = new Level(10000, "TRACE");
 	Level.DEBUG = new Level(20000, "DEBUG");
 	Level.INFO = new Level(30000, "INFO");
@@ -697,6 +698,10 @@ var log4javascript = (function() {
 	}
 
 	Logger.prototype = {
+		event: function() {
+			this.log(Level.EVENT, arguments);
+		},
+
 		trace: function() {
 			this.log(Level.TRACE, arguments);
 		},
@@ -1511,7 +1516,7 @@ var log4javascript = (function() {
 	PatternLayout.prototype = new Layout();
 
 	PatternLayout.prototype.format = function(loggingEvent) {
-		var regex = /%(-?[0-9]+)?(\.?[0-9]+)?([_acdfmMnpr%])(\{([^\}]+)\})?|([^%]+)/;
+		var regex = /%(-?[0-9]+)?(\.?[0-9]+)?([\$_acdfmMnpr%])(\{([^\}]+)\})?|([^%]+)/;
 		var formattedString = "";
 		var result;
 		var searchString = this.pattern;
@@ -1533,6 +1538,21 @@ var log4javascript = (function() {
 				// character and specifier
 				var replacement = "";
 				switch(conversionCharacter) {
+					case "$": // Array of messages
+						formattedString += ':';
+						messages = loggingEvent.messages;
+						for (var mi = 0, mlen = messages.length; mi < mlen; mi++) {
+							var m = messages[mi],
+								toString = Object.prototype.toString,
+								mtype = toString.call(m);
+
+							if (mtype == '[object Date]') {
+								m = m.toUTCString();
+							}
+							formattedString += m;
+						}
+						return [formattedString];
+						break;
 					case "_": // Array of messages
 						return [formattedString].concat(loggingEvent.messages);
 						break;
