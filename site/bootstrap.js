@@ -2,7 +2,9 @@ Ext.Loader.addClassPathMappings({
   "Ext": "ext/src",
   "SSearch": "app",
   "Ext.rtl.EventObjectImpl": "ext/src/rtl/EventObject.js"
-});Ext.ClassManager.addNameAlternateMappings({
+});
+
+Ext.ClassManager.addNameAlternateMappings({
   "Ext.ux.BoxReorderer": [],
   "SSearch.view.Main": [],
   "Ext.ux.grid.filter.Filter": [],
